@@ -17,10 +17,11 @@ return {
     },
     config = function()
       local capabilities = require('blink.cmp').get_lsp_capabilities()
-      require("lspconfig").lua_ls.setup { capabilities = capabilitues }
+      require("lspconfig").lua_ls.setup { capabilities = capabilities }
       require 'lspconfig'.clangd.setup { capabilities = capabilities }
       require 'lspconfig'.gopls.setup { capabilities = capabilities }
       require 'lspconfig'.erlangls.setup { capabilities = capabilities }
+      require 'lspconfig'.marksman.setup { capabilities = capabilities }
       vim.api.nvim_create_autocmd('LspAttach', {
         callback = function(args)
           local client = vim.lsp.get_client_by_id(args.data.client_id)

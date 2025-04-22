@@ -6,8 +6,7 @@ return {
       require('config.plugins.mini.statusline')
       require('config.plugins.mini.comment')
       require('config.plugins.mini.icons')
-      -- require('config.plugins.mini.starter')
-      -- require('config.plugins.mini.pairs')
+      require('config.plugins.mini.pairs')
     end
   }
 }
