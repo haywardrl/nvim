@@ -2,7 +2,7 @@ return {
   {
     "neovim/nvim-lspconfig",
     dependencies = {
-      "saghen/blink.cmp",
+      -- "saghen/blink.cmp",
       {
         "folke/lazydev.nvim",
         ft = "lua", -- only load on lua files
@@ -16,12 +16,11 @@ return {
       },
     },
     config = function()
-      local capabilities = require('blink.cmp').get_lsp_capabilities()
-      require("lspconfig").lua_ls.setup { capabilities = capabilities }
-      require 'lspconfig'.clangd.setup { capabilities = capabilities }
-      require 'lspconfig'.gopls.setup { capabilities = capabilities }
-      require 'lspconfig'.erlangls.setup { capabilities = capabilities }
-      require 'lspconfig'.marksman.setup { capabilities = capabilities }
+      require("lspconfig").lua_ls.setup {}
+      require 'lspconfig'.clangd.setup {}
+      require 'lspconfig'.gopls.setup {}
+      require 'lspconfig'.erlangls.setup {}
+      require 'lspconfig'.marksman.setup {}
       vim.api.nvim_create_autocmd('LspAttach', {
         callback = function(args)
           local client = vim.lsp.get_client_by_id(args.data.client_id)
